@@ -1,31 +1,34 @@
 import React from "react"
 import { Container, Typography, Button, Box } from "@mui/material"
+import CustomBox from "../Containers/CustomBox"
+import CustomContainer from "../Containers/CustomContainer"
 
 const Hero = () => {
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        background: "linear-gradient(to right, #1a73e8, #ff9800)",
-        color: "#fff",
-      }}
-    >
-      <Container>
-        <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
-          Welcome to My Portfolio
+    <CustomBox gradientType={"type1"}>
+      <CustomContainer backgroundColor={"#07004D"}>
+        <Typography
+          variant="h2"
+          sx={{ fontWeight: "bold", mb: 2, textAlign: "center", mt: 4 }}
+        >
+          Welcome
         </Typography>
-        <Typography variant="h6" sx={{ mb: 4 }}>
+        <Typography variant="h6" sx={{ mb: 4, textAlign: "center" }}>
           Showcasing expertise, insights, and creative projects.
         </Typography>
-        <Button variant="contained" size="large" color="secondary">
-          Explore My Work
-        </Button>
-      </Container>
-    </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mb: 8,
+          }}
+        >
+          <Button variant="contained" size="large" sx={{backgroundColor: "#902D41"}}  color="#FFC700">
+            Explore My Work
+          </Button>
+        </Box>
+      </CustomContainer>
+    </CustomBox>
   )
 }
 

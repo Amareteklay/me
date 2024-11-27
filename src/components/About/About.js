@@ -1,15 +1,17 @@
 import React from "react"
 import { Box, Container, Grid, Typography, Avatar } from "@mui/material"
 import ProfilePic from "../../assets/images/profile-pic.jpg" // Replace with your profile image
+import CustomBox from "../Containers/CustomBox"
+import CustomContainer from "../Containers/CustomContainer"
 
 const About = () => {
   return (
-    <Box sx={{ py: 8, backgroundColor: "#f5f5f5" }}>
-      <Container>
+    <CustomBox gradientType={"type2"} id={"about"}>
+      <CustomContainer backgroundColor={"#902D41"}>
         <Typography
           variant="h4"
           component="h2"
-          sx={{ fontWeight: "bold", mb: 4, textAlign: "center" }}
+          sx={{ fontWeight: "bold", mb: 4, textAlign: "center", color: "#fff" }}
         >
           About Me
         </Typography>
@@ -41,8 +43,8 @@ const About = () => {
             </Typography>
           </Grid>
         </Grid>
-      </Container>
-    </Box>
+      </CustomContainer>
+    </CustomBox>
   )
 }
 
