@@ -31,8 +31,17 @@ const insights = [
 
 const Insights = () => {
   return (
-    <CustomBox id="insights" gradientType={"type1"}>
-      <CustomContainer backgroundColor={"#07004D"}>
+    
+      <CustomContainer id="insights" backgroundColor={"#262626"} skewness={"skew(0deg)"}>
+      <Container sx={{
+    backgroundColor: "#00171F", // Dark background
+    borderRadius: "18px",
+    p: 4, // Padding
+    //borderTop: "10px #5E2BFF solid", // Highlighted border
+    boxShadow: "0px 10px 20px rgba(247, 179, 43, 0.8), 0px 0px 15px rgba(94, 43, 255, 0.6)", // Bright shadow
+    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
+   
+  }}>
         <Typography
           variant="h4"
           component="h2"
@@ -54,8 +63,9 @@ const Insights = () => {
             </TimelineItem>
           ))}
         </Timeline>
+        </Container>
       </CustomContainer>
-    </CustomBox>
+   
   )
 }
 

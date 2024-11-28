@@ -6,7 +6,7 @@ const theme = createTheme({
     primary: { main: "#1a73e8" }, // Adjust if needed
     secondary: { main: "#ff9800" },
     dotcolor: { main: "#6b26ff" },
-    background: { default: "#000", paper: "#282c34" }, // Darker background
+    background: { default: "#00263e", paper: "#282c34" }, // Darker background
     text: { primary: "#ffffff", secondary: "#c0c0c0" },
   },
   typography: {
@@ -19,9 +19,9 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: "#e5e5f7",
+          backgroundColor: "#031927",
           opacity: 0.9,
-          backgroundImage: "radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px)",
+         //backgroundImage: "radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px)",
           backgroundSize: "10px 10px",
         },
       },

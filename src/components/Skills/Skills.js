@@ -16,8 +16,16 @@ const skills = {
 
 const Skills = () => {
   return (
-    <CustomBox id="skills" gradientType={"type2"}>
-      <CustomContainer backgroundColor={"#14591D"}>
+    
+      <CustomContainer backgroundColor={"#262626"} skewness={"skew(0deg)"}>
+      <Container sx={{
+    backgroundColor: "#00171F", // Dark background
+    borderRadius: "18px",
+    p: 4, // Padding
+    //borderTop: "10px #5E2BFF solid", // Highlighted border
+    boxShadow: "0px 10px 20px rgba(46, 196, 182, 0.8), 0px 0px 15px rgba(94, 43, 255, 0.6)", // Bright shadow
+    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
+  }}>
         <Typography
           variant="h4"
           component="h2"
@@ -45,8 +53,9 @@ const Skills = () => {
             ))}
           </Grid>
         </Grid>
+        </Container>
       </CustomContainer>
-    </CustomBox>
+   
   )
 }
 

@@ -106,7 +106,7 @@ const Footer = () => {
 
       {/* Scroll to Top Arrow */}
       <Fab
-        color="secondary"
+        color="#1EFC1E"
         size="small"
         aria-label="scroll back to top"
         onClick={scrollToTop}
@@ -115,6 +115,7 @@ const Footer = () => {
           bottom: 20,
           right: 20,
           zIndex: 1000,
+          backgroundColor: "#1EFC1E",
         }}
       >
         <KeyboardArrowUp />

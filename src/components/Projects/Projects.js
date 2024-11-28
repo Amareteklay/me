@@ -32,8 +32,16 @@ const projects = [
 
 const Projects = () => {
   return (
-    <CustomBox id="projects" gradientType={"type1"}>
-      <CustomContainer backgroundColor={"#07004D"}>
+   
+      <CustomContainer backgroundColor={"#262626"} skewness={"skew(0deg)"}>
+      <Container sx={{
+    backgroundColor: "#00171F", // Dark background
+    borderRadius: "18px",
+    p: 4, // Padding
+    //borderTop: "10px #5E2BFF solid", // Highlighted border
+    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
+    boxShadow: "0px 15px 30px rgba(255, 103, 0, 1), 0px 0px 25px rgba(255, 255, 255, 0.8)", // Even brighter shadow on hover
+  }}>
         <Typography
           variant="h4"
           component="h2"
@@ -81,8 +89,9 @@ const Projects = () => {
             </Grid>
           ))}
         </Grid>
+        </Container>
       </CustomContainer>
-    </CustomBox>
+    
   )
 }
 

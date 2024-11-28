@@ -5,17 +5,17 @@ import CustomContainer from "../Containers/CustomContainer"
 
 const Contact = () => {
   return (
-    <CustomBox id="contact" gradientType={"type2"}>
-      <CustomContainer backgroundColor={"#D8D8D8"}>
+    
+      <CustomContainer backgroundColor={"#262626"} skewness={"skew(0deg)"}>
         <Box
           sx={{
-            border: "2px solid #fff",
-            py: 2,
-            borderRadius: "10px",
-            px: { xs: "10%", sm: "15%", md: "10%" }, // Responsive horizontal margins
-            minWidth: { xs: "80%", sm: "70%", md: "50%" }, // Responsive width
-            mx: { xs: "10%", sm: "15%", md: "20%" },
-            backgroundColor: "#07004D",
+            backgroundColor: "#00171F", // Dark background
+            borderRadius: "18px",
+            p: 4, // Padding
+            //borderTop: "10px #5E2BFF solid", // Highlighted border
+            boxShadow: "0px 10px 20px rgba(247, 179, 43, 0.8), 0px 0px 15px rgba(247, 179, 43, 0.8)", // Bright shadow
+            transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
+           
           }}
         >
           <Typography
@@ -76,7 +76,7 @@ const Contact = () => {
           </form>
         </Box>
       </CustomContainer>
-    </CustomBox>
+    
   )
 }
 
