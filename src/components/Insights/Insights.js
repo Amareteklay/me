@@ -8,7 +8,6 @@ import {
   TimelineContent,
   TimelineDot,
 } from "@mui/lab"
-import CustomBox from "../Containers/CustomBox"
 import CustomContainer from "../Containers/CustomContainer"
 
 const insights = [
@@ -31,16 +30,15 @@ const insights = [
 
 const Insights = () => {
   return (
-    
-      <CustomContainer id="insights" backgroundColor={"#262626"} skewness={"skew(0deg)"}>
-      <Container sx={{
+      <Box id="insights" sx={{
     backgroundColor: "#00171F", // Dark background
     borderRadius: "18px",
     p: 4, // Padding
+    my: 8,
     //borderTop: "10px #5E2BFF solid", // Highlighted border
     boxShadow: "0px 10px 20px rgba(247, 179, 43, 0.8), 0px 0px 15px rgba(94, 43, 255, 0.6)", // Bright shadow
     transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
-   
+    minHeight: "75vh",
   }}>
         <Typography
           variant="h4"
@@ -63,9 +61,7 @@ const Insights = () => {
             </TimelineItem>
           ))}
         </Timeline>
-        </Container>
-      </CustomContainer>
-   
+        </Box>
   )
 }
 

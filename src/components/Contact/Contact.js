@@ -1,28 +1,30 @@
 import React from "react"
 import { Box, Typography, TextField, Button } from "@mui/material"
-import CustomBox from "../Containers/CustomBox"
-import CustomContainer from "../Containers/CustomContainer"
+import { Mail} from "@mui/icons-material";
+
 
 const Contact = () => {
   return (
-    
-      <CustomContainer backgroundColor={"#262626"} skewness={"skew(0deg)"}>
         <Box
           sx={{
             backgroundColor: "#00171F", // Dark background
             borderRadius: "18px",
             p: 4, // Padding
+            my: 8,
             //borderTop: "10px #5E2BFF solid", // Highlighted border
             boxShadow: "0px 10px 20px rgba(247, 179, 43, 0.8), 0px 0px 15px rgba(247, 179, 43, 0.8)", // Bright shadow
             transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
            
           }}
         >
+         
           <Typography
             variant="h4"
             component="h2"
             sx={{ fontWeight: "bold", mb: 4, textAlign: "center" }}
-          >
+          > 
+          <Mail sx={{ fontSize: 48, color: "#f90", textAlign: "center" }} />
+          <br></br> 
             Contact Me
           </Typography>
           <form
@@ -37,7 +39,12 @@ const Contact = () => {
               required
               margin="normal"
               variant="filled"
-              sx={{ backgroundColor: "#fff", borderRadius: 1 }}
+              sx={{ backgroundColor: "#fff", borderRadius: 1, "& .MuiInputBase-input": {
+      color: "#000", // Font color for the input text
+    },
+    "& .MuiInputLabel-root": {
+      color: "#3d3d3d", // Font color for the label
+    },}}
             />
             <TextField
               label="Email"
@@ -47,7 +54,14 @@ const Contact = () => {
               required
               margin="normal"
               variant="filled"
-              sx={{ backgroundColor: "#fff", borderRadius: 1 }}
+              sx={{ backgroundColor: "#fff", borderRadius: 1,
+                "& .MuiInputBase-input": {
+      color: "#000", // Font color for the input text
+    },
+    "& .MuiInputLabel-root": {
+      color: "#3d3d3d", // Font color for the label
+    },
+               }}
             />
             <TextField
               label="Message"
@@ -58,25 +72,36 @@ const Contact = () => {
               rows={4}
               margin="normal"
               variant="filled"
-              sx={{ backgroundColor: "#fff", borderRadius: 1 }}
+              sx={{ backgroundColor: "#fff", borderRadius: 1,
+                "& .MuiInputBase-input": {
+      color: "#000", // Font color for the input text
+    },
+    "& .MuiInputLabel-root": {
+      color: "#3d3d3d", // Font color for the label
+    },
+               }}
             />
+           <Box id="contact" sx={{display: "flex", my: 4, justifyContent: "center"}}>
             <Button
-              type="submit"
-              variant="contained"
-              color="black"
-              //fullWidth
-              sx={{
-                mt: 2,
-                backgroundColor: "#902D41",
-                top: "0 auto",
-              }}
-            >
-              Send Message
-            </Button>
+            variant="contained"
+            size="large"
+            sx={{
+              backgroundColor: "#f90",
+              color: "#000 !important",
+              borderRadius: "24px",
+              mb: { xs: 2, sm: 0 }, // Add margin for stacked buttons
+              boxShadow: "0px 15px 30px rgba(94, 43, 255, 0.4), 0px 0px 25px rgba(255, 255, 255, 0.5)", // Bright shadow
+              "&:hover": {
+                backgroundColor: "#ff6700",
+          boxShadow: "0px 15px 30px rgba(94, 43, 255, 0.5), 0px 0px 25px rgba(255, 255, 255, 0.5)", // Bright shadow
+        },
+            }}
+          >
+           Send Message
+          </Button>
+          </Box>
           </form>
         </Box>
-      </CustomContainer>
-    
   )
 }
 

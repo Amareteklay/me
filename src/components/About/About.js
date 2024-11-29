@@ -1,20 +1,18 @@
 import React from "react"
-import { Box, Container, Grid, Typography, Avatar } from "@mui/material"
+import { Box, Button, Grid, Typography, Avatar } from "@mui/material"
 import ProfilePic from "../../assets/images/profile-pic.jpg" // Replace with your profile image
-import CustomBox from "../Containers/CustomBox"
-import CustomContainer from "../Containers/CustomContainer"
 
 const About = () => {
   return (
-    
-      <CustomContainer backgroundColor={"#262626"} skewness={"skew(0deg)"}>
-      <Container sx={{
+      <Box id="about" sx={{
     backgroundColor: "#00171F", // Dark background
     p: 4, // Padding
+    my: 8,
     //borderTop: "10px #5E2BFF solid", // Highlighted border
     borderRadius: "18px",
     boxShadow: "0px 10px 20px rgba(159, 32, 66, 0.8), 0px 0px 15px rgba(247, 179, 43, 0.8)", // Bright shadow
     transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
+    minHeight: "75vh",
   }}>
         <Typography
           variant="h4"
@@ -35,8 +33,7 @@ const About = () => {
           {/* Text Content */}
           <Grid item xs={12} md={8}>
             <Typography variant="h6" sx={{ mb: 2 }}>
-              Hi, I’m [Your Name], a passionate [Your Role] with expertise in
-              [Key Skills].
+              Hi, I’m Amare, an economist and software developer.
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
               I thrive on solving complex problems, learning continuously, and
@@ -51,9 +48,26 @@ const About = () => {
             </Typography>
           </Grid>
         </Grid>
-        </Container>
-      </CustomContainer>
-   
+          <Box sx={{display: "flex", mt: 8, justifyContent: "center"}}>
+            <Button
+            variant="contained"
+            size="large"
+            sx={{
+              backgroundColor: "#f90",
+              color: "#000 !important",
+              borderRadius: "24px",
+              mb: { xs: 2, sm: 0 }, // Add margin for stacked buttons
+              boxShadow: "0px 15px 30px rgba(94, 43, 255, 0.4), 0px 0px 25px rgba(255, 255, 255, 0.5)", // Bright shadow
+              "&:hover": {
+                backgroundColor: "#ff6700",
+          boxShadow: "0px 15px 30px rgba(94, 43, 255, 0.5), 0px 0px 25px rgba(255, 255, 255, 0.5)", // Bright shadow
+        },
+            }}
+          >
+           Get in Touch
+          </Button>
+          </Box>
+        </Box>
   )
 }
 

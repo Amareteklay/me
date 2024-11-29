@@ -12,18 +12,21 @@ import Skills from "./components/Skills/Skills"
 import Insights from "./components/Insights/Insights"
 import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/Footer"
+import CustomContainer from "./components/Containers/CustomContainer"
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
+      <CustomContainer>
       <Hero />
       <About />
       <Projects />
       <Skills />
       <Insights />
       <Contact />
+      </CustomContainer>
       <Footer />
     </ThemeProvider>
   )

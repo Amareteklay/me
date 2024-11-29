@@ -14,14 +14,14 @@ import CustomContainer from "../Containers/CustomContainer"
 
 const projects = [
   {
-    title: "Project One",
+    title: "Emotions and Sustainability",
     description:
       "A brief description of your project showcasing its features and purpose.",
     link: "https://github.com/your-repo/project-one",
     demo: "https://your-demo-link.com",
   },
   {
-    title: "Project Two",
+    title: "Emerging Pests and Pathogens (EPP)",
     description:
       "A short overview of another project highlighting its impact and technologies used.",
     link: "https://github.com/your-repo/project-two",
@@ -32,15 +32,15 @@ const projects = [
 
 const Projects = () => {
   return (
-   
-      <CustomContainer backgroundColor={"#262626"} skewness={"skew(0deg)"}>
-      <Container sx={{
+      <Box id="projects" sx={{
     backgroundColor: "#00171F", // Dark background
     borderRadius: "18px",
     p: 4, // Padding
+    my: 4,
     //borderTop: "10px #5E2BFF solid", // Highlighted border
     transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
     boxShadow: "0px 15px 30px rgba(255, 103, 0, 1), 0px 0px 25px rgba(255, 255, 255, 0.8)", // Even brighter shadow on hover
+    minHeight: "75vh",
   }}>
         <Typography
           variant="h4"
@@ -89,9 +89,7 @@ const Projects = () => {
             </Grid>
           ))}
         </Grid>
-        </Container>
-      </CustomContainer>
-    
+        </Box>
   )
 }
 
