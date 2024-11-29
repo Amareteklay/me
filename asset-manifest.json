@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/me/static/js/main.ecfc2fed.js",
+    "main.js": "/me/static/js/main.e1984c13.js",
     "static/media/profile-pic.jpg": "/me/static/media/profile-pic.88534c20fc8fcb9ee870.jpg",
     "index.html": "/me/index.html",
-    "main.ecfc2fed.js.map": "/me/static/js/main.ecfc2fed.js.map"
+    "main.e1984c13.js.map": "/me/static/js/main.e1984c13.js.map"
   },
   "entrypoints": [
-    "static/js/main.ecfc2fed.js"
+    "static/js/main.e1984c13.js"
   ]
 }
