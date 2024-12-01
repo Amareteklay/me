@@ -13,21 +13,24 @@ import Insights from "./components/Insights/Insights"
 import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/Footer"
 import CustomContainer from "./components/Containers/CustomContainer"
+import { LanguageProvider } from "./utils/LanguageContext"
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header />
-      <CustomContainer>
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Insights />
-      <Contact />
-      </CustomContainer>
-      <Footer />
+      <LanguageProvider>
+        <Header />
+        <CustomContainer>
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Insights />
+        <Contact />
+        </CustomContainer>
+        <Footer />
+      </LanguageProvider>
     </ThemeProvider>
   )
 }

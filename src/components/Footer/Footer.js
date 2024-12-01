@@ -6,6 +6,7 @@ import {
   Typography,
   IconButton,
   Fab,
+  Link,
 } from "@mui/material"
 import {
   LinkedIn,
@@ -34,18 +35,18 @@ const Footer = () => {
             <Typography variant="h6" sx={{ mb: 2 }}>
               Quick Links
             </Typography>
-            <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
+            <Link href="#about" color="inherit" underline="hover" sx={{ display: 'block', mb: 1 }}>
               About Me
-            </Typography>
-            <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
+            </Link>
+            <Link href="#projects" color="inherit" underline="hover" sx={{ display: 'block', mb: 1 }}>
               Projects
-            </Typography>
-            <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
+            </Link>
+            <Link href="#insights" color="inherit" underline="hover" sx={{ display: 'block', mb: 1 }}>
               Insights
-            </Typography>
-            <Typography variant="body2" sx={{ mb: 1, cursor: "pointer" }}>
+            </Link>
+            <Link href="#contact" color="inherit" underline="hover" sx={{ display: 'block', mb: 1 }}>
               Contact
-            </Typography>
+            </Link>
           </Grid>
 
           {/* Social Media Icons */}
@@ -100,7 +101,7 @@ const Footer = () => {
             pt: 2,
           }}
         >
-          © {new Date().getFullYear()} Amare Teklay. All rights reserved.
+          {new Date().getFullYear()} Amare Teklay. All rights reserved.
         </Typography>
       </Container>
 
