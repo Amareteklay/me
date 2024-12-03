@@ -5,15 +5,9 @@ import ProfilePic from "../../assets/images/profile-pic.jpg" // Replace with you
 const About = () => {
   return (
       <Box id="about" sx={{
-    backgroundColor: "#00171F", // Dark background
-    p: 4, // Padding
-    my: 8,
-    //borderTop: "10px #5E2BFF solid", // Highlighted border
-    borderRadius: "18px",
-    boxShadow: "0px 10px 20px rgba(159, 32, 66, 0.8), 0px 0px 15px rgba(247, 179, 43, 0.8)", // Bright shadow
-    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
-    minHeight: "75vh",
-  }}>
+        p: 4, // Padding
+        my: 8,
+      }}>
         <Typography
           variant="h4"
           component="h2"

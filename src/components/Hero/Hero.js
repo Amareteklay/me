@@ -3,23 +3,10 @@ import { Typography, Button, Box } from "@mui/material";
 
 const Hero = () => {
   return (
-      <Box
-        sx={{
-          backgroundColor: "#00171F", // Dark background
-          p: { xs: 2, sm: 4 }, // Padding adjusts for small screens
-          boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.5), 0px 5px 10px rgba(30, 252, 30, 1)", // Strong shadow
-          transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
-          borderRadius: "0 0 18px 18px",
-          //borderTop: "5px #1EFC1E solid",
-          width: "100%", // Dynamically adjust width
-          minHeight: "80vh",
-          margin: "0 auto", // Center the container
-          "&:hover": {
-           // transform: "scale(1.01)", // Slightly enlarge on hover
-            boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(30, 252, 30, 0.9)", // Bright shadow
-          },
-        }}
-      >
+      <Box sx={{
+        p: 4, // Padding
+        my: 8,
+      }}>
         <Typography
           variant="h1"
           sx={{

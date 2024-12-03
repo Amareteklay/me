@@ -33,15 +33,9 @@ const projects = [
 const Projects = () => {
   return (
       <Box id="projects" sx={{
-    backgroundColor: "#00171F", // Dark background
-    borderRadius: "18px",
-    p: 4, // Padding
-    my: 4,
-    //borderTop: "10px #5E2BFF solid", // Highlighted border
-    transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
-    boxShadow: "0px 15px 30px rgba(255, 103, 0, 1), 0px 0px 25px rgba(255, 255, 255, 0.8)", // Even brighter shadow on hover
-    minHeight: "75vh",
-  }}>
+        p: 4, // Padding
+        my: 8,
+      }}>
         <Typography
           variant="h4"
           component="h2"

@@ -7,6 +7,7 @@ const CustomContainer = ({ children, backgroundColor = "#262626", skewness = "no
       sx={{
         padding: { xs: "10px", sm: "20px", md: "30px" }, // Responsive padding
         margin: "0 auto", // Center the container
+        marginTop: "-64px",
         marginBottom: "10px",
         backgroundColor: backgroundColor, // Dynamic background color
         minHeight: { xs: "400px", sm: "500px", md: "600px" }, // Responsive minimum height
@@ -23,7 +24,20 @@ const CustomContainer = ({ children, backgroundColor = "#262626", skewness = "no
         overflow: "hidden", // Ensure content doesn't spill
       }}
     >
+      <Box
+      sx={{
+        backgroundColor: "#00171F", // Dark background
+        borderRadius: "18px",
+        p: 4, // Padding
+        my: 8,
+        //borderTop: "10px #5E2BFF solid", // Highlighted border
+        boxShadow:
+          "0px 10px 20px rgba(247, 179, 43, 0.8), 0px 0px 15px rgba(247, 179, 43, 0.8)", // Bright shadow
+        transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth transition
+      }}
+    >
       {children}
+    </Box>
     </Box>
   );
 };
