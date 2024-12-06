@@ -30,32 +30,36 @@ const insights = [
 
 const Insights = () => {
   return (
-      <Box id="insights" sx={{
+    <Box
+      id="insights"
+      sx={{
         p: 4, // Padding
         my: 8,
-      }}>
-        <Typography
-          variant="h4"
-          component="h2"
-          sx={{ fontWeight: "bold", mb: 4, textAlign: "center" }}
-        >
-          Insights
-        </Typography>
-        <Timeline position="alternate">
-          {insights.map((item, index) => (
-            <TimelineItem key={index}>
-              <TimelineSeparator>
-                <TimelineDot color="dotcolor" />
-                {index < insights.length - 1 && <TimelineConnector />}
-              </TimelineSeparator>
-              <TimelineContent>
-                <Typography variant="h6">{item.year}</Typography>
-                <Typography variant="body2">{item.insight}</Typography>
-              </TimelineContent>
-            </TimelineItem>
-          ))}
-        </Timeline>
-        </Box>
+        backgroundColor: "#fff",
+      }}
+    >
+      <Typography
+        variant="h4"
+        component="h2"
+        sx={{ fontWeight: "bold", mb: 4, textAlign: "center" }}
+      >
+        Insights
+      </Typography>
+      <Timeline position="alternate">
+        {insights.map((item, index) => (
+          <TimelineItem key={index}>
+            <TimelineSeparator>
+              <TimelineDot color="dotcolor" />
+              {index < insights.length - 1 && <TimelineConnector />}
+            </TimelineSeparator>
+            <TimelineContent>
+              <Typography variant="h6">{item.year}</Typography>
+              <Typography variant="body2">{item.insight}</Typography>
+            </TimelineContent>
+          </TimelineItem>
+        ))}
+      </Timeline>
+    </Box>
   )
 }
 

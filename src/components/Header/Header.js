@@ -12,16 +12,23 @@ import {
   Box,
   Menu,
   MenuItem,
+  Tooltip,
+  useTheme as useMuiTheme,
 } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import LanguageIcon from "@mui/icons-material/Language"
+import Brightness4Icon from '@mui/icons-material/Brightness4'
+import Brightness7Icon from '@mui/icons-material/Brightness7'
 import { Link as ScrollLink } from "react-scroll"
 import { useLanguage } from "../../utils/LanguageContext"
+import { useTheme } from "../../utils/ThemeContext"
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [languageAnchorEl, setLanguageAnchorEl] = useState(null)
   const { language, setLanguage } = useLanguage()
+  const { isDarkMode, toggleTheme } = useTheme()
+  const muiTheme = useMuiTheme()
 
   const handleLanguageClick = (event) => {
     setLanguageAnchorEl(event.currentTarget)
@@ -54,141 +61,133 @@ const Header = () => {
   ]
 
   return (
-    <>
-      {/* AppBar for Desktop */}
-      <AppBar
-        position="sticky"
-        sx={{ backgroundColor: "#031927", color: "#fff", opacity: 0.75 }}
-      >
-        <Toolbar>
-          {/* Hamburger Icon for Mobile */}
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2, display: { sm: "none" } }}
-            onClick={toggleDrawer(true)}
-          >
-            <MenuIcon />
-          </IconButton>
-
-          {/* App Title */}
-          <Typography
-            variant="h6"
-            component="a"
-            href="/"
-            sx={{
-              flexGrow: 1,
-              mx: 8,
-              background: "linear-gradient(90deg, #ff6ec4, #7873f5, #42d392)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              animation: "aurora 10s infinite",
-              "@keyframes aurora": {
-                "0%": { backgroundPosition: "0% 50%" },
-                "50%": { backgroundPosition: "100% 50%" },
-                "100%": { backgroundPosition: "0% 50%" },
-              },
-              backgroundSize: "200% 200%", // Smooth gradient animation
-            }}
-          >
-            Amare Teklay
-          </Typography>
-          {/* Nav Links for Desktop */}
-          <Box sx={{ display: { xs: "none", sm: "block" }, marginRight: 2 }}>
-            {navItems.map((item) => (
-              <ScrollLink
-                key={item.to}
-                to={item.to}
-                smooth
-                duration={500}
-                offset={-64} // Offset to account for AppBar height
-              >
-                <Button
-                  color="inherit"
-                  sx={{
-                    mx: 1.5, // Margin between buttons
-                    px: 2, // Padding for larger click area
-                    fontSize: "1rem", // Larger font size for better readability
-                    textTransform: "none", // Remove uppercase transformation
-                    transition: "all 0.3s ease", // Smooth transitions for hover effects
-                    "&:hover": {
-                      color: "#ff6700", // Change text color on hover
-                      backgroundColor: "rgba(255, 103, 0, 0.1)", // Light background on hover
-                      borderRadius: "8px", // Slightly rounded corners on hover
-                    },
-                  }}
-                >
-                  {item.label}
-                </Button>
-              </ScrollLink>
-            ))}
-          </Box>
-
-          {/* Language Dropdown */}
-          <Box sx={{ ml: 2, mr: 4 }}>
+    <AppBar 
+      position="fixed" 
+      sx={{ 
+        backgroundColor: muiTheme.palette.background.default,
+        color: muiTheme.palette.text.primary,
+        transition: 'all 0.3s ease-in-out',
+        borderBottom: `1px solid ${muiTheme.palette.divider}`
+      }}
+      elevation={0}
+    >
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={toggleDrawer(true)}
+          sx={{ mr: 2, display: { sm: "none" } }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ 
+            flexGrow: 1,
+            display: { xs: "none", sm: "block" },
+          }}
+        >
+          Amare Teklay
+        </Typography>
+        <Box sx={{ display: { xs: "none", sm: "block" }, mr: 2 }}>
+          {navItems.map((item) => (
             <Button
-              color="inherit"
-              onClick={handleLanguageClick}
-              startIcon={<LanguageIcon sx={{ color: '#1EFC1E' }} />}
-              sx={{
+              key={item.to}
+              sx={{ 
+                color: "inherit",
+                mx: 1.5,
+                px: 2,
+                fontSize: "1rem",
                 textTransform: "none",
-                minWidth: "auto",
-                fontFamily: language === 'ti' ? 'Noto Sans Ethiopic, sans-serif' : 'inherit'
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  color: muiTheme.palette.primary.main,
+                  backgroundColor: muiTheme.palette.action.hover,
+                },
               }}
+              component={ScrollLink}
+              to={item.to}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
             >
-              {languageMap[language]}
+              {item.label}
             </Button>
-            <Menu
-              anchorEl={languageAnchorEl}
-              open={Boolean(languageAnchorEl)}
-              onClose={handleLanguageClose}
+          ))}
+        </Box>
+        <Tooltip title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}>
+          <IconButton 
+            sx={{ 
+              ml: 1,
+              transition: 'all 0.3s ease-in-out',
+              '&:hover': {
+                color: muiTheme.palette.primary.main,
+              }
+            }} 
+            onClick={toggleTheme} 
+            color="inherit"
+          >
+            {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+        </Tooltip>
+        <IconButton
+          color="inherit"
+          onClick={handleLanguageClick}
+          sx={{ 
+            ml: 1,
+            transition: 'all 0.3s ease-in-out',
+            '&:hover': {
+              color: muiTheme.palette.primary.main,
+            }
+          }}
+        >
+          <LanguageIcon />
+        </IconButton>
+        <Menu
+          anchorEl={languageAnchorEl}
+          open={Boolean(languageAnchorEl)}
+          onClose={handleLanguageClose}
+          sx={{
+            "& .MuiPaper-root": {
+              backgroundColor: muiTheme.palette.background.paper,
+              color: muiTheme.palette.text.primary,
+            },
+          }}
+        >
+          {Object.entries(languageMap).map(([code, label]) => (
+            <MenuItem
+              key={code}
+              onClick={() => handleLanguageSelect(code)}
+              selected={language === code}
               sx={{
-                "& .MuiPaper-root": {
-                  backgroundColor: "#031927",
-                  color: "#fff",
-                  mt: 1,
+                '&.Mui-selected': {
+                  backgroundColor: muiTheme.palette.action.selected,
+                },
+                '&:hover': {
+                  backgroundColor: muiTheme.palette.action.hover,
                 },
               }}
             >
-              <MenuItem 
-                onClick={() => handleLanguageSelect("en")}
-                selected={language === "en"}
-              >
-                En
-              </MenuItem>
-              <MenuItem 
-                onClick={() => handleLanguageSelect("sv")}
-                selected={language === "sv"}
-              >
-                Sv
-              </MenuItem>
-              <MenuItem 
-                onClick={() => handleLanguageSelect("ti")}
-                selected={language === "ti"}
-                sx={{ 
-                  fontFamily: 'Noto Sans Ethiopic, sans-serif',
-                  "&.Mui-selected": {
-                    backgroundColor: "rgba(255, 103, 0, 0.1)",
-                  },
-                  "&:hover": {
-                    backgroundColor: "rgba(255, 103, 0, 0.2)",
-                  },
-                }}
-              >
-                ትግ
-              </MenuItem>
-            </Menu>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
-      {/* Drawer for Mobile */}
+              {label}
+            </MenuItem>
+          ))}
+        </Menu>
+      </Toolbar>
       <Drawer
         anchor="left"
         open={drawerOpen}
         onClose={toggleDrawer(false)}
-        sx={{ display: { sm: "none" } }}
+        sx={{ 
+          display: { sm: "none" },
+          '& .MuiDrawer-paper': {
+            backgroundColor: muiTheme.palette.background.default,
+            color: muiTheme.palette.text.primary,
+            borderRight: `1px solid ${muiTheme.palette.divider}`
+          }
+        }}
       >
         <List>
           {navItems.map((item) => (
@@ -201,13 +200,18 @@ const Header = () => {
               smooth
               duration={500}
               offset={-64}
+              sx={{
+                '&:hover': {
+                  backgroundColor: muiTheme.palette.action.hover,
+                },
+              }}
             >
               <ListItemText primary={item.label} />
             </ListItem>
           ))}
         </List>
       </Drawer>
-    </>
+    </AppBar>
   )
 }
 

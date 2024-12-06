@@ -35,6 +35,7 @@ const Projects = () => {
       <Box id="projects" sx={{
         p: 4, // Padding
         my: 8,
+        backgroundColor: "#fff",
       }}>
         <Typography
           variant="h4"

@@ -1,9 +1,9 @@
 // src/App.js
 
 import React from "react"
-import { ThemeProvider } from "@mui/material/styles"
+import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline"
-import theme from "./styles/Theme" // Import theme
+import getTheme from "./styles/Theme"
 import Header from "./components/Header/Header"
 import Hero from "./components/Hero/Hero"
 import About from "./components/About/About"
@@ -14,22 +14,34 @@ import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/Footer"
 import CustomContainer from "./components/Containers/CustomContainer"
 import { LanguageProvider } from "./utils/LanguageContext"
+import { ThemeProvider, useTheme } from "./utils/ThemeContext"
 
-function App() {
+const ThemedApp = () => {
+  const { isDarkMode } = useTheme();
+  const theme = getTheme(isDarkMode ? 'dark' : 'light');
+
   return (
-    <ThemeProvider theme={theme}>
+    <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <LanguageProvider>
-        <Header />
-        <CustomContainer>
+      <Header />
+      <CustomContainer>
         <Hero />
         <About />
         <Projects />
         <Skills />
         <Insights />
         <Contact />
-        </CustomContainer>
-        <Footer />
+      </CustomContainer>
+      <Footer />
+    </MuiThemeProvider>
+  );
+};
+
+function App() {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <ThemedApp />
       </LanguageProvider>
     </ThemeProvider>
   )
